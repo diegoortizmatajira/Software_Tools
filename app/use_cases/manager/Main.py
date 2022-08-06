@@ -1,4 +1,4 @@
-from ..Base import Base
+from ..Base import Base, MenuOption
 from .CreateProgram import CreateProgram
 from .Login import Login
 from ...model.College import College
@@ -12,9 +12,16 @@ class Main(Base):
         self.current_user: Manager = None
         self.college = college
 
+    def ExecuteCreateProgram(self):
+        use_case = CreateProgram(self.college)
+        use_case.execute()
+
     def Execute(self):
         login = Login(self.college)
         self.current_user, result = login.execute()
         if not result.ok:
             self.print_error(result.message)
+            return
         self.print(result.message)
+        self.menu(
+            MenuOption('p', 'Create a new Program', self.ExecuteCreateProgram))

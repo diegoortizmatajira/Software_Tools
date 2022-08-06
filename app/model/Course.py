@@ -1,4 +1,6 @@
-from .Term import Term
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .Term import Term
 
 
 class Course:

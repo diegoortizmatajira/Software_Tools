@@ -1,8 +1,9 @@
 from datetime import date
-from typing import List
-from .Term import Term
+from typing import TYPE_CHECKING, List
 from .Student import Student
 from ..dtos.Status import Status
+if TYPE_CHECKING:
+    from .Term import Term
 
 
 class Section:

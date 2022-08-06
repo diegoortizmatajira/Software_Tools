@@ -1,4 +1,6 @@
-from .College import College
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .College import College
 
 
 class Manager:

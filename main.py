@@ -1,4 +1,4 @@
-from use_cases.Main import Main as MainUseCase
+from app.use_cases.Main import Main as MainUseCase
 
 
 def main():

@@ -1,8 +1,9 @@
-from typing import List
-from .Program import Program
+from typing import TYPE_CHECKING, List
 from .Course import Course
 from .Section import Section
 from ..dtos.Status import Status
+if TYPE_CHECKING:
+    from .Program import Program
 
 
 class Term:

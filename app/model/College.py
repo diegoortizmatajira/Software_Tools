@@ -1,8 +1,8 @@
+from typing import  List
 from .Manager import Manager
 from .Program import Program
 from .Student import Student
 from ..dtos.Status import Status
-from typing import List
 
 
 class College:
@@ -12,8 +12,6 @@ class College:
         self.managers: List[Manager] = []
         self.programs: List[Program] = []
         self.students: List[Student] = []
-        # adds a default manager
-        self.add_manager(Manager("admin"))
 
     def add_manager(self, new_manager: Manager) -> Status:
         if new_manager.college != None:

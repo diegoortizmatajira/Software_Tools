@@ -1,5 +1,7 @@
-from .College import College
-from .Section import Section
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .College import College
+    from .Section import Section
 
 class Student:
 

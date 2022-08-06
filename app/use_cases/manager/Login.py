@@ -11,7 +11,7 @@ class Login(Base):
         self.remaining_attempts = 3
 
     def ask_credentials(self):
-        manager_username = input("Enter the username")
+        manager_username = self.input("Enter the username: ")
         self.remaining_attempts = self.remaining_attempts - 1
         return self.college.get_manager_by_username(manager_username)
 
@@ -20,4 +20,4 @@ class Login(Base):
             manager = self.ask_credentials()
             if manager != None:
                 return manager, Status(True, "Login Succeeded")
-        return None, Status(False, "Login Failed")
+        return None, Status(False, "Login Failed after multiple attempts")

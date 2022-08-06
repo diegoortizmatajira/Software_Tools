@@ -1,5 +1,6 @@
-from ..model.College import College, Program
-from .Base import Base
+from ...model.College import College
+from ...model.Program import Program
+from ..Base import Base
 
 
 class CreateProgram(Base):
@@ -9,8 +10,8 @@ class CreateProgram(Base):
         self.college = college
 
     def collect_input(self) -> Program:
-        name = input("Enter the program name:\n")
-        duration_in_years = input("Enter the program duration in years:\n")
+        name = input("Enter the program name: ")
+        duration_in_years = input("Enter the program duration in years: ")
         return Program(name, duration_in_years)
 
     def execute(self) -> Program:
