@@ -35,3 +35,9 @@ class College:
         new_program.college = self
         self.programs.append(new_program)
         return Status(True, "Successfully added program")
+
+    def get_manager_by_username(self, username: str) -> Manager:
+        for manager in self.managers:
+            if manager.username == username:
+                return manager
+        return None
