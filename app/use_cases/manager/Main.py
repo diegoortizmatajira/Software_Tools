@@ -22,6 +22,7 @@ class Main(Base):
         if not result.ok:
             self.print_error(result.message)
             return
-        self.print(result.message)
+        self.print_success(result.message)
         self.menu(
+            "Manager Menu",
             MenuOption('p', 'Create a new Program', self.ExecuteCreateProgram))

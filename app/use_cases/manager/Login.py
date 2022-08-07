@@ -3,6 +3,7 @@ from ...model.College import College, Manager
 from ...dtos.Status import Status
 from typing import Tuple
 
+
 class Login(Base):
 
     def __init__(self, college: College) -> None:
@@ -11,7 +12,8 @@ class Login(Base):
         self.remaining_attempts = 3
 
     def ask_credentials(self):
-        manager_username = self.input("Enter the username: ")
+        self.header('Welcome to the Student Enrollment System')
+        manager_username = self.input("Enter the manager username: ")
         self.remaining_attempts = self.remaining_attempts - 1
         return self.college.get_manager_by_username(manager_username)
 
@@ -20,4 +22,6 @@ class Login(Base):
             manager = self.ask_credentials()
             if manager != None:
                 return manager, Status(True, "Login Succeeded")
+            if self.remaining_attempts > 0:
+                self.print_warning("Invalid username, try again...")
         return None, Status(False, "Login Failed after multiple attempts")

@@ -10,6 +10,7 @@ class CreateProgram(Base):
         self.college = college
 
     def collect_input(self) -> Program:
+        self.header("Program Creation")
         name = input("Enter the program name: ")
         duration_in_years = input("Enter the program duration in years: ")
         return Program(name, duration_in_years)
@@ -20,5 +21,5 @@ class CreateProgram(Base):
         if not result.ok:
             self.print_error(result.message)
             return None
-        self.print(result.message)
+        self.print_success(result.message)
         return program
