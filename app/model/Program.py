@@ -16,5 +16,6 @@ class Program:
     def add_term(self, term: Term) -> Status:
         if term.program != None:
             return Status(False, "The term already exists")
+        term.program = self
         self.terms.append(term)
         return Status(True, "Successfully added term")
