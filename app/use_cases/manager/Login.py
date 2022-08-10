@@ -1,5 +1,5 @@
 from ..Base import Base
-from ...model.College import College, Manager
+from ...model import College, Manager
 from ...dtos.Status import Status
 from typing import Tuple
 

@@ -1,5 +1,4 @@
-from ...model.College import College
-from ...model.Term import Term
+from ...model import College, Term
 from ..Base import Base
 from ..common.SelectProgram import SelectProgram
 

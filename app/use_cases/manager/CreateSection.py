@@ -1,5 +1,4 @@
-from ...model.College import College
-from ...model.Section import Section
+from ...model import College, Section
 from ..Base import Base
 
 

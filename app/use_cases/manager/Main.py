@@ -6,8 +6,7 @@ from .CreateStudent import CreateStudent
 from .CreateTerm import CreateTerm
 from . import CreateProgram
 from .Login import Login
-from ...model.College import College
-from ...model.Manager import Manager
+from ...model import College, Manager
 
 
 class Main(Base):

@@ -1,5 +1,4 @@
-from ...model.College import College
-from ...model.Student import Student
+from ...model import College, Student
 from ..Base import Base
 
 

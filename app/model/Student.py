@@ -10,3 +10,5 @@ class Student:
         self.current_section: Section = None
         self.student_id = student_id
         self.full_name = full_name
+        
+

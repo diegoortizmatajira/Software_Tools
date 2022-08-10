@@ -39,3 +39,9 @@ class College:
             if manager.username == username:
                 return manager
         return None
+
+    def get_student_by_id(self, id: str) -> Student:
+        for student in self.students:
+            if student.student_id == id:
+                return student
+        return None
