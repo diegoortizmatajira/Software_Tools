@@ -1,4 +1,6 @@
+from types import LambdaType
 from colorama import Fore, Style
+from typing import List
 
 
 class MenuOption:
@@ -39,7 +41,7 @@ class Base:
         return input(message)
 
     def separator(self, character: str, color=Style.RESET_ALL):
-        self.print(f'{color}{character * 50}{Style.RESET_ALL}', padding=0)
+        self.print(f'{color}{character * 80}{Style.RESET_ALL}', padding=0)
 
     def menu(self, title: str, *options: MenuOption):
         while True:
@@ -59,3 +61,25 @@ class Base:
                 # If no option matches, then show a warning
                 self.print_warning(
                     f'The option "{selected}" is invalid, try again..')
+
+    def list(self, items: List, header: str, itemizer: LambdaType):
+        self.print(f'{"Id":4}  {header}', Fore.LIGHTBLACK_EX)
+        self.separator(".", Fore.LIGHTBLACK_EX)
+        i: int = 0
+        for item in items:
+            i = i + 1
+            self.print(f'{i:4}  {itemizer(item)}', Fore.LIGHTBLACK_EX)
+        self.separator(".", Fore.LIGHTBLACK_EX)
+
+    def list_selector(self, items: List, header: str, itemizer: LambdaType):
+        self.list(items, header, itemizer)
+        while True:
+            response = self.input("Please select an item Id or 'q' to quit...")
+            if response == 'q':
+                return None
+            if response.isdigit():
+                index = int(response)
+                if index > 0 and index <= len(items):
+                    return items[index - 1]
+            self.print_warning(
+                "The input is not a valid, please try again... ")

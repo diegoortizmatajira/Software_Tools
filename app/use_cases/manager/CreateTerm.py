@@ -1,6 +1,7 @@
 from ...model.College import College
 from ...model.Term import Term
 from ..Base import Base
+from ..common.SelectProgram import SelectProgram
 
 
 class CreateTerm(Base):
@@ -10,4 +11,5 @@ class CreateTerm(Base):
         self.college = college
 
     def execute(self) -> Term:
-        pass
+        programSelectionUseCase = SelectProgram(self.college)
+        programSelectionUseCase.execute()
