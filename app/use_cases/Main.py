@@ -22,4 +22,4 @@ class Main(Base):
         self.menu("Login Options",
                   MenuOption("m", "Manager Login", self.ExecuteManagerMain),
                   MenuOption("s", "Student Login", self.ExecuteStudentMain))
-        self.print_success('\n\nThank you for using the system...\n')
+        self.print_success('Thank you for using the system...')

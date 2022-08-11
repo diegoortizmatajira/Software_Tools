@@ -11,4 +11,13 @@ class CreateTerm(Base):
 
     def execute(self) -> Term:
         programSelectionUseCase = SelectProgram(self.college)
-        programSelectionUseCase.execute()
+        program = programSelectionUseCase.execute()
+        if program == None:
+            return None
+        name = self.input("Please enter the name for the term: ")
+        term_number = self.input("Please enter the term number: ")
+        term = Term(name, term_number)
+        program.add_term(term)
+        self.print_success(f"Successfully created term '{term.name}'")
+        return Term
+
