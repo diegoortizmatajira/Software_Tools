@@ -21,6 +21,7 @@ def create_populated_college():
     aimt.add_term(aimt_3)
     aimt.add_term(aimt_4)
 
+    # ADD A NEW LINE 
     # adds some courses to a term
     aimt_1.add_course(Course("AML-1114: Data Science and Machine Learning"))
     aimt_1.add_course(Course("AML-1214: Python Programming"))
